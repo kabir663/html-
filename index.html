@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<style>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* font-family: 'Varela Round', sans-serif; */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+}
+header{
+    /* border: 2px solid red; */
+    height: 70px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo h1 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: rgb(201, 57, 57);
+}
+.logo{
+    display : flex;
+    align-items : center;
+    justify-content : center;
+
+}
+/* .left-side{
+    align-self: center;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+} */
+
+ul{
+    list-style-type: none;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between; 
+    gap: 10px;
+    height: 100%;
+    align-items: center;
+}
+
+.logo{
+    border: 2px solid rgb(202, 40, 40);
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    margin-left: 10px;
+}
+
+main{
+    width: 100%;
+    /* border: 2px solid rebeccapurple; */
+}
+
+.hero{
+    /* border: 2px solid crimson; */
+    height: 70svh;
+}
+
+.main-container{
+    height: 100%;
+    position: relative;
+}
+
+.layer{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.layer img{
+    height: 100%;
+    width: 100%;
+    mix-blend-mode: multiply;
+}
+
+.text-container{
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    /* height: 100%; */
+    top: 40%;
+}
+
+.text-container h1{
+    font-family: "Inter", sans-serif;
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+}
+
+.video-container{
+    height: 100%;
+    width: 100%;
+    /* position: absolute; */
+    left: 0;
+    border: 2px solid black;
+    top: 0;
+}
+
+.video-container video{
+    opacity: .8;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.black-solid{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.702);
+}
+
+.mouse-follower{
+    pointer-events: none;
+    display: none;
+    z-index: 9999;
+    height: 15px;
+    width: 15px;
+    background: rgb(246, 75, 12);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 0%;
+    border-radius: 50%;
+    top: 0%;
+}
+.text-wrapper{
+    /* border: 2px solid red; */
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.text-container2{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    align-items: center;
+    /* border: 2px solid black; */
+    margin-bottom: 30px;
+}
+
+.text-container2  h2{
+    background-color: rgb(246, 75, 12);
+    color: white;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 20px 0 10px 0;
+    font-weight: 700;
+    font-family: "Inter", sans-serif;
+}
+.text-container2 p{
+    text-align: center;
+    text-wrap: pretty;
+    line-height: 20px;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 100;
+    letter-spacing:-1px;
+}
+
+a{
+    color:rgb(246, 75, 12);
+    font-family: "Inter", sans-serif;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+a:hover{
+    color: black;
+    transition: all ease .3s;
+}
+::selection{
+    color: white;
+    transition: all ease .2s;
+    background-color: rgb(245, 135, 32);
+}
+.institutes{
+    border: 2px solid black;
+    width: 100%;
+}
+
+.institutes-title{
+    width: 100%;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+}
+
+.institutes-card-container{
+    border: 2px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.inst-cards{
+    border: 2px solid brown;
+    height: 300px;
+    width: 350px;
+}
+
+.hamburger{
+    display: none;
+    flex-direction: column;
+    /* border: 2px solid black; */
+    height: 80%;
+    width: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hamburger span:first-child{
+    display: inline-block;
+    border-radius: 20px;
+    background: black;
+    height: 5px;
+    width: 30px;
+}
+.hamburger span:last-child{
+    display: inline-block;
+    border-radius: 20px;
+    background: black;
+    height: 5px;
+    width: 25px;
+}
+
+@media screen and (max-width:480px) {
+    .hamburger{
+        display: flex;
+        border-radius: 5px;
+    }
+    li{
+        display: none;
+    }
+}
+
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card h2 {
+    font-size: 18px;
+    margin: 15px;
+    color: #6d0019;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+</style>
+      </head>
+  <body>
+    <header>
+      <nav class="nav-bar">
+        <div class="left-side">
+          <div class="logo">
+            <h1>DPU</h1>
+          </div>
+        </div>
+        <div class="right-side">
+          <ul>
+            <li><a href="https://col.dpuerp.in/Login.aspx" target="__blank">Students</a></li>
+            <li><a href="https://acs.dpuerp.in/Login.aspx?ReturnUrl=%2fSecured%2fStudents%2fOEStudentExamination.aspx%3fStudentSetID%3dVfwMTDVAMmAVkfvsP%2fQhJg%3d%3d%26NoofAttemptsAttained%3djJOtHsRVwYECOhoiBc69dA%3d%3d%26NoofAttempts%3dydRRTTxkdt6Trx91pX1%2bcA%3d%3d%26SubjectID%3dz%2fQCYPJ6v3UD%2bih54JTV1A%3d%3d&StudentSetID=VfwMTDVAMmAVkfvsP/QhJg==&NoofAttemptsAttained=jJOtHsRVwYECOhoiBc69dA==&NoofAttempts=ydRRTTxkdt6Trx91pX1+cA==&SubjectID=z/QCYPJ6v3UD+ih54JTV1A==" target="__blank">Examination</a></li>
+            <li><a href="https://dpu.edu.in/" target="__blank">More</a></li>
+            <li class="hamburger"><span></span><span></span></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="main-container">
+          <div class="text-container">
+            <h1>Welcome to Dr. D. Y. Patil Community</h1>
+          </div>
+          <div class="layer">
+         
+            <div class="black-solid"></div>
+          </div>
+          <div class="video-container">
+          </div>
+        </div>
+      </section>
+      <section class="about-us">
+        <div class="text-wrapper">
+          <div class="text-container2">
+            <h2>About University</h2>
+            <p>
+              In 2003, Dr. D. Y. Patil Vidyapeeth (DPU), Pune, was established
+              as a “Deemed-to-be-University” under Section 3 of the UGC Act
+              1956. It started with one constituent unit i.e. Dr. D. Y. Patil
+              Medical College, Hospital and Research Centre, Pune. Over the
+              years, since its inception, the Vidyapeeth has grown exponentially
+              and many more constituent Institutions have come into existence
+              under its umbrella. <br />
+              The Government of India, MHRD, on the advice of UGC, vide its
+              notification dated 11th January 2003 declared Dr. D. Y. Patil
+              Vidyapeeth, Pune as a Deemed-to-be University comprising of Dr. D.
+              Y. Patil Medical College, Hospital and Research Centre, Pimpri,
+              Pune.
+            </p>
+          </div>
+        </div>
+        <div class="institutes">
+            <div class="institutes-title">
+                <h2>Institutes</h2>
+            </div>
+            <div class="institutes-card-container">
+                <div class="container">
+                    <h1>Institutes</h1>
+                    
+<div class="grid-container">
+                        <div class="card">
+                            <a href="https://medical.dpu.edu.in/" target=__blank">
+
+                                <img src="https://dpu.edu.in/img/compression/medical-clg.jpg" alt="Medical College">
+                                <h2>Dr. D. Y. Patil Medical College, Hospital & Research Centre</h2>
+
+                            </a>
+                        </div>
+                        <div class="card">
+                            <a href="https://dental.dpu.edu.in/" target="__blank">
+
+                                <img src="https://dpu.edu.in/img/compression/dental.jpg" alt="Dental College">
+                                <h2>Dr. D. Y. Patil Dental College & Hospital</h2>
+
+                            </a>
+                        </div>
+                        <div class="card">
+                            <a href="https://biotech.dpu.edu.in/" target="__blank">
+
+                                <img src="https://dpu.edu.in/img/compression/biotech-building.jpg" alt="Biotechnology Institute">
+                                <h2>Dr. D. Y. Patil Biotechnology & Bioinformatics Institute</h2>
+
+                            </a>
+                        </div>
+                        <!-- More cards as needed -->
+                    </div>
+                        
+                </div>
+            </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
